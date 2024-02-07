@@ -1,0 +1,88 @@
+/*Author: Val I. John
+Course: 9.1 LAB* (H): Program: Online shopping cart (Part 1)
+Date: October 24th 2023
+Assignment: Online shopping cart (Part 1)
+Instructor: Sergio Pisano
+Description: In main(), prompt the user for two items and create two objects of the ItemToPurchase class. 
+Before prompting for the second item, call scnr.nextLine(); to allow the user to input a new string.
+ */
+
+//package itemtopurchase;
+
+import java.util.Scanner;
+
+public class ShoppingCartPrinter {
+
+	public static void main(String[] args) {
+		// Create two instances of the ItemToPurchase class
+		ItemToPurchase item1 = new ItemToPurchase();
+		ItemToPurchase item2 = new ItemToPurchase();
+
+		// Create a Scanner object to read user input
+		Scanner scnr = new Scanner(System.in);
+
+		// Collect details for the first item
+		System.out.println("Item 1");
+		System.out.println("Enter the item name:");
+		item1.setName(scnr.nextLine());
+		System.out.println("Enter the item price:");
+		item1.setPrice(scnr.nextInt());
+		System.out.println("Enter the item quantity:");
+		item1.setQuantity(scnr.nextInt());
+
+		System.out.println("");  // Print a blank line for formatting
+
+		// Collect details for the second item
+		System.out.println("Item 2");
+		System.out.println("Enter the item name:");
+		scnr.nextLine();  // Consume leftover newline character from previous input
+		item2.setName(scnr.nextLine());
+		System.out.println("Enter the item price:");
+		item2.setPrice(scnr.nextInt());
+		System.out.println("Enter the item quantity:");
+		item2.setQuantity(scnr.nextInt());
+		System.out.println("");  // Print ONE blank line for formatting
+
+		// Calculate the total cost for each item
+		int item1TotalCost = item1.getPrice() * item1.getQuantity();
+		int item2TotalCost = item2.getPrice() * item2.getQuantity();
+
+		// Calculate the net cost by adding both items' costs
+		int netCost = item1TotalCost + item2TotalCost;
+
+		// Display the total cost for each item
+		System.out.println("TOTAL COST");
+		item1.itemTotalCost(item1.getName(), item1.getQuantity(), item1.getPrice(), item1TotalCost);
+		item2.itemTotalCost(item2.getName(), item2.getQuantity(), item2.getPrice(), item2TotalCost);
+		System.out.println("");
+		// Display the total net cost
+		System.out.println("Total: $" + netCost);
+	}
+}
+/** 
+ * CODE OUTPUT
+ * 
+Item 1
+Enter the item name: 
+Chocolate Chips
+Enter the item price: 
+3
+Enter the item quantity: 
+1
+
+Item 2
+Enter the item name: 
+Bottled Water
+Enter the item price: 
+1
+Enter the item quantity: 
+10
+
+TOTAL COST
+Chocolate Chips 1 @ $3 = 3
+Bottled Water 10 @ $1 = 10
+
+Total: $13
+
+ * */
+ 

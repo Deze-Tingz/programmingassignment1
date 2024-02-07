@@ -1,0 +1,27 @@
+package playground;
+
+import java.util.Scanner;
+
+public class SimpleWhileLoop {
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+
+		int i = 1;
+		
+		int j = i++;
+		
+		System.out.println("i is " + i + " j is " + j);
+		System.out.println(j * 2);
+
+
+	
+
+
+
+
+
+
+
+	}
+}
+

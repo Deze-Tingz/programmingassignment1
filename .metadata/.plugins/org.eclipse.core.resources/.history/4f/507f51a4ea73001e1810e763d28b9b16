@@ -1,0 +1,41 @@
+// Define the package for the class
+package module4_discussion_5_oop_group_3;
+
+// Define the Car class to store and manage car details
+public class Car {
+
+	// Declare private variables for car's make, model, and year
+	private String make;
+	private String model;
+	private int year;
+
+	// Method to set the car's make
+	public void setMake(String n) {
+		this.make = n;
+	}
+
+	// Method to set the car's model
+	public void setModel(String m) {
+		this.model = m;
+	}
+
+	// Method to set the car's manufacturing year
+	public void setYear(int y) {
+		this.year = y;
+	}
+
+	// Method to get the car's make
+	public String getMake() {
+		return this.make;
+	}
+
+	// Method to get the car's model
+	public String getModel() {
+		return this.model;
+	}
+
+	// Method to get the car's manufacturing year
+	public int getYear() {
+		return this.year;
+	}
+}

@@ -1,0 +1,23 @@
+package playground;
+
+import java.util.Scanner;
+
+public class PLayGround {
+
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+		int userIn;
+
+		userIn = scnr.nextInt();
+
+		while (userIn != 9) {
+
+
+			userIn = userIn + 3;
+		}
+
+		System.out.println(userIn);
+	}
+}
+
+

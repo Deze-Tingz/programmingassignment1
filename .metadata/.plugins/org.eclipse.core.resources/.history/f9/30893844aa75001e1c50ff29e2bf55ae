@@ -1,0 +1,24 @@
+package playground;
+
+import java.util.Scanner;
+
+public class PLayGround {
+
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+	      char in;
+	   
+	      in = scnr.next().charAt(0);
+	   
+	      while (in != 'e') {
+	         System.out.println("User entered " + in);
+	         in = scnr.next().charAt(0);
+	      }
+	      
+	      System.out.println("Done");
+
+
+
+}
+
+// H D e 

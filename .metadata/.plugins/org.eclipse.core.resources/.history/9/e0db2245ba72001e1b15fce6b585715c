@@ -1,0 +1,62 @@
+/*Author: Val I. John
+Course: 9.1 LAB* (H): Program: Online shopping cart (Part 1)
+Date: October 24th 2023
+Assignment: Online shopping cart (Part 1)
+Instructor: Sergio Pisano
+Description: In main(), prompt the user for two items and create two objects of the ItemToPurchase class. 
+Before prompting for the second item, call scnr.nextLine(); to allow the user to input a new string.
+ */
+
+package itemtopurchase;
+
+// Class Definition
+public class ItemToPurchase {
+	private String itemName;
+	private int itemPrice;
+	private int itemQuantity;
+
+	public ItemToPurchase() {
+		itemName = "none";
+		itemPrice = 0;
+		itemQuantity = 0;
+	}
+
+	// Set the name of item 
+	public void setName(String name) {
+		this.itemName = name;
+	}
+
+	// Retrieve the name of the item for use
+	public String getName() {
+		return itemName;
+	}
+
+	// Set the price of the item
+	public void setPrice (int price) {
+		this.itemPrice = price;
+	}
+
+	// Retrieves the price of the item
+	public int getPrice() {
+		return itemPrice;
+	}
+
+	// Set the quantity of the item
+	public void setQuantity(int quantity) {
+		this.itemQuantity = quantity;
+	}
+
+	// Retrieve the quantity 
+	public int getQuantity() {
+
+		return itemQuantity;
+	}
+
+	public void  printItem1(String itemName, int itemPrice, int itemQuantity) {
+		System.out.println("Item 1");
+		System.out.println("Enter the item name: \n" + itemName);
+		System.out.println("Enter the item price: \n" + itemPrice);
+		System.out.println("Enter the item quantity: \n" + itemQuantity);
+	}
+
+}

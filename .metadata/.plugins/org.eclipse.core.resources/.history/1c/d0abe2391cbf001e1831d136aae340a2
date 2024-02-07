@@ -1,0 +1,20 @@
+
+
+package gradebook;
+
+/*
+Description:  Keeps a single grade in the form of both score (from 0 to 100) and
+letter grade (A, A-, . . . , F). The assumption is that the letter-grade cut-off points are
+the same as you see in the course syllabus.
+ */
+
+public class Grade {
+	  private int score;
+	    private String letterGrade;
+	    public int getScore() {
+	        return score;
+	    }
+	    public String getLetterGrade() {
+	        return letterGrade;
+	    }
+}

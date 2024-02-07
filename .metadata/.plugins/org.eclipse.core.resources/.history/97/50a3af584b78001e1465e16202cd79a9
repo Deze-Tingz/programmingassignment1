@@ -1,0 +1,31 @@
+package playground;
+
+import java.util.Scanner;
+
+public class SimpleWhileLoop {
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+
+
+		int numVals;
+		int value;
+		int i;
+
+		numVals = scnr.nextInt();
+
+		for (i = 0; i >= numVals - 1; ++i   ) {
+			value = scnr.nextInt();
+			System.out.println("Amount " + value);
+		}
+
+
+
+
+
+
+
+
+
+	}
+}
+

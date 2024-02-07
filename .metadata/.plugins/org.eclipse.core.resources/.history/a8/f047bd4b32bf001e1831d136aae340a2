@@ -1,0 +1,29 @@
+package gradebook;
+
+
+
+public class ErrorChecking {
+	 String userInput = "";
+	// Method to check if the string contains only alphabetical characters
+	public void isAlphabetical(String userInput) {
+		
+		// Validate input using regular expression
+		
+			if (userInput.matches("^[a-zA-Z]+$")) {
+	            System.out.println("Valid input: " + userInput);
+	        } else {
+	            System.out.println("Invalid input. Please enter alphabetical characters only.");
+	        }
+			
+    }
+       
+
+       // System.out.print("Enter alphabetical characters only: ");
+
+
+        
+    
+
+    
+    
+}

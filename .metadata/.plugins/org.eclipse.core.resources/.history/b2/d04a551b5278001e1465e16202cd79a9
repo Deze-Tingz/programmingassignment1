@@ -1,0 +1,39 @@
+package playground;
+
+import java.util.Scanner;
+
+public class SimpleWhileLoop {
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+
+
+		 int valCount;
+
+	      int i;
+	      int value;
+	      
+	      valCount = scnr.nextInt();
+	      value = 0;
+	      
+	      for (i = 0; i <= valCount -1 ; ++i   ) {
+	       value = scnr.nextInt();
+	       System.out.print(value);
+	       if (i != valCount -1) {
+	    	   System.out.print(" x " + value);
+	    	   
+	       }
+	       
+				
+			}
+
+
+
+
+
+
+
+
+
+	}
+}
+

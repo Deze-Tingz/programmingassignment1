@@ -1,0 +1,101 @@
+package gradebook;
+
+import java.util.Scanner;
+
+/*
+Author: Val I. John
+Course: COP 3337 Java Programming II
+Date: January 29th, 2024
+Assignment: Programming Assignment 1 (GradeBook)
+Instructor: Kiavash Bahreni
+
+Description: Contains the main method which does the followings: first it gets
+user’s input data from System.in verifies the data to make sure there is no problem
+with the input data. Then, it asks for user’s commands and gets them via System.in.
+Finally, it processes each command, and outputs the results to System.out.
+ */
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+		Student student = new Student();
+
+		// Declare variables for user input
+		String firstName;
+		String lastName;
+		String pid;
+		int gradeValue;
+
+		System.out.println("Welcome to my grade book!");
+		System.out.println();
+
+		System.out.println("Please enter the information of the first student using the following format:");
+		System.out.println();
+
+		System.out.println("\"firstName lastName PID grade\"");
+		System.out.println();
+
+		System.out.println("Press Enter when you are done.");
+		System.out.println();
+
+		// Implement user input for student's first name
+		do {
+			System.out.println("Enter first name:");
+			firstName = scnr.nextLine();
+			if (firstName.matches("^[a-zA-Z]+$") && !firstName.contains(" ")) {
+				student.setFirstName(firstName);
+			} else {
+				System.out.println("Invalid input. Please enter alphabetical characters without whitespaces.");
+			}
+		} while (!firstName.matches("^[a-zA-Z]+$") || firstName.contains(" "));
+
+		// Implement user input for student's last name
+		do {
+			System.out.println("Enter last name:");
+			lastName = scnr.nextLine();
+			if (lastName.matches("^[a-zA-Z]+$") && !lastName.contains(" ")) {
+				student.setLastName(lastName);
+			}
+			if (lastName.matches("^[a-zA-Z.]+$") && !lastName.contains(" ")) {
+				student.setLastName(lastName);
+
+			} else {
+
+				System.out.println("Invalid input. Please enter alphabetical characters without whitespaces.");
+			}
+		} while (!lastName.matches("^[a-zA-Z.]+$") || lastName.contains(" "));
+
+		// Implement user input for student's PID
+		do {
+			System.out.println("Enter PID number:");
+			pid = scnr.nextLine();
+			if (pid.matches("^[1-9]\\d{6}$") && !pid.contains(" ")) {
+				student.setPid(pid);
+			} else {
+				System.out.println(
+						"Invalid input. Please enter 7 numerical digits without whitespaces. Cannot start with zeroes.");
+			}
+		} while (!pid.matches("^[1-9]\\d{6}$") || pid.contains(" "));
+
+		// Implement user input for student's grade
+		do {
+			System.out.println("Enter student grade:");
+			gradeValue = scnr.nextInt();
+			if ((gradeValue >= 0) && (gradeValue <= 100)) {
+				// FIX ME: Set the grade here
+			}
+			// Check for invalid grade input
+			if ((gradeValue < 0) || (gradeValue > 100)) {
+				System.out.println("Invalid input. Please enter a number between 0 and 100.");
+			}
+		} while ((gradeValue < 0) || (gradeValue > 100));
+
+		// Display the entered student information
+		System.out.print(
+				student.getFirstName() + " " + student.getLastName() + " " + "" + student.getPid() + " " + gradeValue);
+
+		// Close the scanner
+		scnr.close();
+	}
+}

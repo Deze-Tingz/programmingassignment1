@@ -1,0 +1,26 @@
+package playground;
+
+import java.util.Scanner;
+
+public class PLayGround {
+
+	public static void main(String[] args) {
+		 Scanner scnr = new Scanner(System.in);
+	      char charInput;
+			int sumChars;
+
+			sumChars = 0;
+			charInput = scnr.next().charAt(0);
+			
+			while (charInput != 'e') {
+				sumChars = sumChars + 1;
+				
+			}
+	      
+	   	System.out.println(sumChars);
+
+
+	}
+}
+
+// R v e

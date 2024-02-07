@@ -1,0 +1,38 @@
+package playground;
+
+import java.util.Scanner;
+
+public class SimpleWhileLoop {
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+
+
+		int inputValue;
+		int smallestVal = 0;
+		int i;
+		inputValue = scnr.nextInt();
+
+		for (i = -2; i <= 7; ++i) {
+			
+			if (smallestVal < inputValue) {
+
+				smallestVal = inputValue;
+
+			}
+			inputValue = scnr.nextInt();
+			
+			// This will only run once
+			if (i == 0) {
+				smallestVal = inputValue;
+
+			}
+
+		    
+
+		}
+		System.out.println(smallestVal);
+
+	}
+
+}
+

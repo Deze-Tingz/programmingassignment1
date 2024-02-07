@@ -1,0 +1,54 @@
+package gradebook;
+/*
+  Description: Keeps track of students info: first name (String), last name
+(String), 7-digit ID (int), and grade (Grade).
+
+*/
+
+public class Student {
+	
+	 	private String firstName;
+	 	private String lastName;
+	 	private int pid;
+	 	private int grade;
+	    
+	   /*----------------------Getters-------------------------------------*/
+	 
+	    public String getFirstName() {
+	        return firstName;
+	    }
+	    public String getLastName() {
+	        return lastName;
+	    }
+	    public int getPid() {
+	        return pid;
+	    }
+	    public int getGrade() {
+	        return grade;
+	    }
+	    /*----------------------Setters-------------------------------------*/
+	    
+	    public void setFirstName(String firstName) {
+	    	this.firstName = firstName;
+	    	
+	    }
+	    
+	    public void setLastName(String lastName) {
+	    	this.lastName = lastName;
+	    	
+	    }
+	    
+	    public void setPid(int pid) {
+	    	this.pid = pid;
+	    	
+	    }
+	    
+	   
+		
+		public void setGrade(int grade2) {
+			this.grade = grade2;
+		}
+	    
+	    
+		
+}

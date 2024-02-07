@@ -1,0 +1,87 @@
+package gradebook;
+
+import java.util.Scanner;
+
+public class ProgramInputHandling {
+	Scanner scnr = new Scanner(System.in);
+	Student student = new Student();
+	private String firstName;
+	private String lastName;
+	private String pid;
+	private int gradeValue;
+
+	// Method to handle user input for student's information
+	public void inputStudentInfo(Scanner scnr, Student student, String firstName, String lastName, String pid) {
+		// Input user's first name
+		do {
+			System.out.println("Enter first name:");
+			this.firstName = scnr.next();
+			// Convert the first letter to uppercase and the rest to lowercase
+			this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+			if (this.firstName.matches("^[a-zA-Z]+$") && !this.firstName.contains(" ")) {
+				student.setFirstName(this.firstName);
+			} else {
+				System.out.println("Invalid input. Please enter alphabetical characters without whitespaces.");
+			}
+		} while (!this.firstName.matches("^[a-zA-Z]+$") || this.firstName.contains(" "));
+
+		
+		
+		// Input user's last name
+		do {
+			System.out.println("Enter last name:");
+			this.lastName = scnr.next();
+			// Convert the first letter to uppercase and the rest to lowercase
+			this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+			if (this.lastName.matches("^[a-zA-Z]+$") && !this.lastName.contains(" ")) {
+				student.setLastName(this.lastName);
+			}
+			if (this.lastName.matches("^[a-zA-Z.]+$") && !this.lastName.contains(" ")) {
+				student.setLastName(this.lastName);
+			} else {
+				System.out.println("Invalid input. Please enter alphabetical characters without whitespaces.");
+			}
+		} while (!this.lastName.matches("^[a-zA-Z.]+$") || this.lastName.contains(" "));
+
+		
+		
+		// Input user's PID
+		do {
+			System.out.println("Enter PID number:");
+			this.pid = scnr.next();
+			if (this.pid.matches("^[1-9]\\d{6}$") && !this.pid.contains(" ")) {
+				student.setPid(this.pid);
+			} else {
+				System.out.println(
+						"Invalid input. Please enter 7 numerical digits without whitespaces. Cannot start with zeroes.");
+			}
+		} while (!this.pid.matches("^[1-9]\\d{6}$") || this.pid.contains(" "));
+
+		
+		
+		// Input user's grade
+		do {
+			System.out.println("Enter student grade:");
+			this.gradeValue = scnr.nextInt();
+			if ((this.gradeValue >= 0) && (this.gradeValue <= 100)) {
+				// FIX ME: Set the grade here
+			}
+			// Check for invalid grade input
+			if ((this.gradeValue < 0) || (this.gradeValue > 100)) {
+				System.out.println("Invalid input. Please enter a number between 0 and 100.");
+			}
+		} while ((this.gradeValue < 0) || (this.gradeValue > 100));
+
+		// Close the scanner
+		scnr.close();
+	}
+
+	
+	
+	// Method to display student information
+	public void displayStudentInfo(Student student, int gradeValue) {
+		// Display the entered student information
+		System.out.print(student.getFirstName() + " " + student.getLastName() + " " + "" + student.getPid() + " "
+				+ this.gradeValue);
+	}
+}

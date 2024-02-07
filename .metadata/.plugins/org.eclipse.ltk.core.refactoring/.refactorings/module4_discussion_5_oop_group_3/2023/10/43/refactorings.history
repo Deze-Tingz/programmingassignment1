@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;module4_discussion_5_oop_group_3.Cars&apos; to &apos;Car&apos;&#x0D;&#x0A;- Original project: &apos;module4_discussion_5_oop_group_3&apos;&#x0D;&#x0A;- Original element: &apos;module4_discussion_5_oop_group_3.Cars&apos;&#x0D;&#x0A;- Renamed element: &apos;module4_discussion_5_oop_group_3.Car&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Cars&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;module4_discussion_5_oop_group_3{Cars.java[Cars" matchStrategy="1" name="Car" qualified="false" references="true" similarDeclarations="false" stamp="1698315232980" textual="false" version="1.0"/>
+</session>
