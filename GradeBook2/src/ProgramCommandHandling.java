@@ -172,7 +172,7 @@ public class ProgramCommandHandling {
         }
     }
 
-    // Method to print the name for a given PID
+    // The Method to print the name for a given PID
     public void printNameByPid(String currentPid) {
         List<Student> students = Student.getStudentList(); // Get list of students
         boolean studentFound = false;
