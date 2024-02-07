@@ -1,18 +1,9 @@
-
-
-/*
- Description: Keeps a list of students info in the following data structure:
-java.util.ArrayList{Student}.
-
-*/
-
-
 import java.util.Arrays;
 import java.util.List;
 
 public class GradeBook {
 
-
+    // Method to calculate the average score of all students
     public double calculateAvg() {
         List<Student> students = Student.getStudentList();
         double sum = 0;
@@ -21,6 +12,7 @@ public class GradeBook {
         return sum / students.size();
     }
 
+    // Method to calculate the median score of all students
     public float calculateMedian() {
         List<Student> students = Student.getStudentList();
         int i = 0, n = students.size();
@@ -34,31 +26,25 @@ public class GradeBook {
             return scores[n / 2];
     }
 
+    // Method to print the list of all students with their scores in a tab-separated format
     public void printTabScores() {
         List<Student> students = Student.getStudentList();
         for (Student student : students)
             System.out.printf("%s\t%s\t%d\t%d\n", student.getFirstName(), student.getLastName(), student.getPid(), student.getGrade().getScore());
     }
 
-    private final String[] gradeOrder = new String[]{"A", "A-", "B+", "B", "B-", "C+", "C", "D", "F"};
+    // Array defining the order of letter grades
+    private final String[] gradeOrder = {"A", "A-", "B+", "B", "B-", "C+", "C", "D", "F"};
 
-    // Method to calculate and print the letter grade of the average score of all students
+    // Method to calculate and print the average letter grade of all students
     public void calculateAndPrintAverageLetterGrade() {
         List<Student> students = Student.getStudentList();
-
-        // Calculate the total score of all students
         int totalScore = 0;
         for (Student student : students) {
             totalScore += student.getGrade().getScore();
         }
-
-        // Calculate the average score
         double averageScore = (double) totalScore / students.size();
-
-        // Determine the letter grade corresponding to the average score
         String averageLetterGrade = determineLetterGrade(averageScore);
-
-        // Print the average letter grade
         System.out.println("Average letter grade: " + averageLetterGrade);
     }
 
@@ -69,14 +55,13 @@ public class GradeBook {
                 return gradeOrder[i];
             }
         }
-        // If the average score is below "F", return "F"
         return "F";
     }
 
     // Helper method to get the lower bound score for a letter grade index
     private int getLowerBound(int gradeIndex) {
         if (gradeIndex == 0) {
-            return 0; // Lower bound for "A"
+            return 0;
         } else {
             return (int) Math.ceil(getUpperBound(gradeIndex - 1));
         }
@@ -85,27 +70,20 @@ public class GradeBook {
     // Helper method to get the upper bound score for a letter grade index
     private double getUpperBound(int gradeIndex) {
         if (gradeIndex == gradeOrder.length - 1) {
-            return Double.POSITIVE_INFINITY; // Upper bound for "F"
+            return Double.POSITIVE_INFINITY;
         } else {
-            return (gradeIndex == 0) ? 100 : (gradeIndex * 10) - 0.1; // Adjust for non-"A" grades
+            return (gradeIndex == 0) ? 100 : (gradeIndex * 10) - 0.1;
         }
     }
 
-
-    // Method to calculate and print the letter grade of the median score of all students
+    // Method to calculate and print the median letter grade of all students
     public void calculateAndPrintMedianLetterGrade() {
         List<Student> students = Student.getStudentList();
-
-        // Extract all scores into an array for sorting
         int[] scores = new int[students.size()];
         for (int i = 0; i < students.size(); i++) {
             scores[i] = students.get(i).getGrade().getScore();
         }
-
-        // Sort the scores array
         Arrays.sort(scores);
-
-        // Calculate the median score
         double medianScore;
         int middleIndex = scores.length / 2;
         if (scores.length % 2 == 0) {
@@ -113,23 +91,14 @@ public class GradeBook {
         } else {
             medianScore = scores[middleIndex];
         }
-
-        // Determine the letter grade corresponding to the median score
         String medianLetterGrade = determineLetterGrade(medianScore);
-
-        // Print the median letter grade
         System.out.println("Median letter grade: " + medianLetterGrade);
     }
 
-
-    // Method to calculate and print the list of all students in a tab-separated table
+    // Method to print the list of all students with their names, IDs, and letter grades in a tab-separated format
     public void printTabSeparatedTable() {
         List<Student> students = Student.getStudentList();
-
-        // Print table header
         System.out.println("First Name\tLast Name\tPID\tLetter Grade");
-
-        // Print student information
         for (Student student : students) {
             String firstName = student.getFirstName();
             String lastName = student.getLastName();
@@ -137,7 +106,5 @@ public class GradeBook {
             String letterGrade = student.getGrade().getLetterGrade();
             System.out.println(firstName + "\t" + lastName + "\t" + pid + "\t" + letterGrade);
         }
-
-
     }
 }
