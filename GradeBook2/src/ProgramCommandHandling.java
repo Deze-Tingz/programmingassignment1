@@ -10,7 +10,7 @@ public class ProgramCommandHandling {
 
     // Method to handle user input commands
     public void inputUserCommand() {
-        System.out.println("Please enter a new command:");
+        System.out.println("Please enter a new command or type \"quit\" to exit:");
         // Variable to store user input command
         String userCommand = scanner.nextLine().trim(); // Read user input and remove leading/trailing whitespace
 
