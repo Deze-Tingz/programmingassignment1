@@ -4,26 +4,29 @@ import java.util.Scanner;
 public class ProgramCommandHandling {
 
     // Array defining the order of letter grades
-    private String[] gradeOrder = {"A", "A-", "B+", "B", "B-", "C+", "C", "D", "F"};
-    private String pidToCompare; // Variable to store PID for comparison
-    private String userCommand; // Variable to store user input command
-    private Scanner scanner = new Scanner(System.in); // Scanner for user input
-    private GradeBook gradebook = new GradeBook(); // GradeBook object for managing grades
+    private final String[] gradeOrder = {"A", "A-", "B+", "B", "B-", "C+", "C", "D", "F"};
+    private final Scanner scanner = new Scanner(System.in); // Scanner for user input
+    private final GradeBook gradebook = new GradeBook(); // GradeBook object for managing grades
 
     // Method to handle user input commands
     public void inputUserCommand() {
         System.out.println("Please enter a new command:");
-        userCommand = scanner.nextLine().trim(); // Read user input and remove leading/trailing whitespace
+        // Variable to store user input command
+        String userCommand = scanner.nextLine().trim(); // Read user input and remove leading/trailing whitespace
 
         // Check if user command starts with "letter "
+        // Variable to store PID for comparison
+        String pidToCompare;
         if (userCommand.startsWith("letter ")) {
             pidToCompare = userCommand.substring(7); // Extract PID from user command
             printLetterGradeByPid(pidToCompare); // Print letter grade for the given PID
+            inputUserCommand();
         }
         // Check if user command starts with "name "
         else if (userCommand.startsWith("name ")) {
             pidToCompare = userCommand.substring(5); // Extract PID from user command
             printNameByPid(pidToCompare); // Print name for the given PID
+            inputUserCommand();
         }
         // If the user command is not specific to PID or name
         else {
@@ -38,6 +41,7 @@ public class ProgramCommandHandling {
             else {
                 processCommand(userCommand); // Process the command
             }
+            inputUserCommand();
         }
     }
 
@@ -77,20 +81,25 @@ public class ProgramCommandHandling {
                 gradebook.calculateAndPrintMedianLetterGrade(); // Print median letter grade
                 break;
             case "tab scores":
-                System.out.println("Tab scores:");
+                System.out.println("tab scores:");
                 gradebook.printTabScores(); // Print tab-separated scores
                 break;
-            case "tab letter":
-                gradebook.printTabSeparatedTable(); // Print tab-separated letter grades
+            case "tab letters":
+                gradebook.printTabLetters(); // Print tab-separated letter grades
                 break;
             case "quit":
                 System.out.println("You have closed the GradeBook.");
                 break;
             default:
                 System.out.println("Invalid command. Please try again.");
-                break;
+                inputUserCommand();
         }
-        inputUserCommand(); // After processing the command, prompt for next command
+        // If the keyword "quit" is not entered close the Grade Book
+        if(command.equals("quit")) {
+            System.exit(0);
+        } else {
+            inputUserCommand();
+        }
     }
 
     // Method to find and print the minimum score of all students

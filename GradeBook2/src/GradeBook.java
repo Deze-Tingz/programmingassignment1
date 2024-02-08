@@ -29,8 +29,19 @@ public class GradeBook {
     // Method to print the list of all students with their scores in a tab-separated format
     public void printTabScores() {
         List<Student> students = Student.getStudentList();
-        for (Student student : students)
-            System.out.printf("%s\t%s\t%d\t%d\n", student.getFirstName(), student.getLastName(), student.getPid(), student.getGrade().getScore());
+        // Print the header with fixed width for each column
+        System.out.printf("%-15s %-15s %-10s %-12s\n", "First Name", "Last Name", "PID", "Grade");
+
+        // Print each student's information with the same fixed width to ensure alignment
+        for (Student student : students) {
+            String firstName = student.getFirstName();
+            String lastName = student.getLastName();
+            String pid = Integer.toString(student.getPid());
+            String gradeValue = String.valueOf(student.getGrade().getScore());
+
+            // Adjust the %-15, %-15, %-10, %-12 to fit your needs
+            System.out.printf("%-15s %-15s %-10s %-12s\n", firstName, lastName, pid, gradeValue);
+        }
     }
 
     // Array defining the order of letter grades
@@ -96,15 +107,20 @@ public class GradeBook {
     }
 
     // Method to print the list of all students with their names, IDs, and letter grades in a tab-separated format
-    public void printTabSeparatedTable() {
+    public void printTabLetters() {
         List<Student> students = Student.getStudentList();
-        System.out.println("First Name\tLast Name\tPID\tLetter Grade");
+        // Print the header with fixed width for each column
+        System.out.printf("%-15s %-15s %-10s %-12s\n", "First Name", "Last Name", "PID", "Letter Grade");
+
+        // Print each student's information with the same fixed width to ensure alignment
         for (Student student : students) {
             String firstName = student.getFirstName();
             String lastName = student.getLastName();
             String pid = Integer.toString(student.getPid());
             String letterGrade = student.getGrade().getLetterGrade();
-            System.out.println(firstName + "\t" + lastName + "\t" + pid + "\t" + letterGrade);
+
+            // Adjust the %-15, %-15, %-10, %-12 to fit your needs
+            System.out.printf("%-15s %-15s %-10s %-12s\n", firstName, lastName, pid, letterGrade);
         }
     }
 }
